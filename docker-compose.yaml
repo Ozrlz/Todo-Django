@@ -10,3 +10,13 @@ services:
 #      - ./src:/home/app/src
 #    ports:
 #      - "${FLASK_PORT:-5000}:${FLASK_PORT:-5000}"
+  react:
+    container_name: ${PROJECT_NAME}_react
+    image: ${PROJECT_NAME}_react:${RELEASE_VERSION}
+    build:
+      context: ./src/frontend
+      dockerfile: Dockerfile
+    ports:
+      - "${REACT_PORT:-3000}:${REACT:-3000}"
+    #volumes:
+    #  - ./src/frontend/:/home/
